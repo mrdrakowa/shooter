@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player1 : MonoBehaviour
@@ -12,12 +13,15 @@ public class Player1 : MonoBehaviour
 
     public int hp;
     public int exp;
+
     private Rigidbody2D rb;
+    
     private Vector2 moveInput;
     private Vector2 moveVelocity;
 
     private bool facingright = false;
 
+    public TextMeshProUGUI textHp;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,11 +62,26 @@ public class Player1 : MonoBehaviour
         {
             Flip();
         }
+
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+        textHp.text ="HP: " + hp.ToString(); 
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + (moveVelocity * Time.fixedDeltaTime));
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("potion") )
+        {
+            ChangeHealth(5);
+            Destroy(other.gameObject);
+        }
     }
     private void Flip()
     {

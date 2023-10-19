@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEditor.U2D;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
     public Player1 player;
 
     public int damage;
+    public GameObject[] drop;
 
     void Start()
     {
@@ -38,6 +40,9 @@ public class Enemy : MonoBehaviour
         }
         if(hp <= 0) 
         {
+            System.Random rng = new System.Random(DateTime.Now.Millisecond);
+            
+            Instantiate(drop[rng.Next(2)], gameObject.transform.position, transform.rotation);
             Destroy(gameObject);
         }
         }
