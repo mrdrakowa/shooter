@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public Player1 player;
 
     public int damage;
+
     void Start()
     {
         player = FindObjectOfType<Player1>() ;
@@ -62,6 +63,9 @@ public class Enemy : MonoBehaviour
             {
                 timeBtwAttack -= Time.deltaTime; 
             }
+        }else if (other.CompareTag("Enemy"))
+        {
+
         }
     }
     public void OnEnemyAttack()

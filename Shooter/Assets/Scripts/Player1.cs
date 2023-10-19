@@ -23,6 +23,10 @@ public class Player1 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        if (controlType == ControlType.PC)
+        {
+            joystick.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
