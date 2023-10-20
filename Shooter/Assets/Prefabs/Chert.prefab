@@ -424,7 +424,7 @@ MonoBehaviour:
   damage: 10
   drop:
   - {fileID: 5715139806506557831, guid: 2bea02845d15b704abf252e41ae0ea15, type: 3}
-  - {fileID: 0}
+  - {fileID: 1631713308832263016, guid: d9892d1e7b660c54f80b4a9e4b77ffa1, type: 3}
   - {fileID: 0}
 --- !u!58 &2222943193833405938
 CircleCollider2D:

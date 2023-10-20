@@ -14,14 +14,16 @@ public class Player1 : MonoBehaviour
     public int hp;
     public int exp;
 
-    private Rigidbody2D rb;
-    
+    public GameObject shield;
+    public shield shieldTimer;
+    public TextMeshProUGUI textHp;
+
     private Vector2 moveInput;
     private Vector2 moveVelocity;
 
     private bool facingright = false;
-
-    public TextMeshProUGUI textHp;
+    private Rigidbody2D rb;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +83,21 @@ public class Player1 : MonoBehaviour
         {
             ChangeHealth(5);
             Destroy(other.gameObject);
+        }else if(other.CompareTag("Shield"))
+        {
+            if(!shield.activeInHierarchy)
+            {
+                shield.SetActive(true);
+                shieldTimer.gameObject.SetActive(true);
+                shieldTimer.isCooldown = true;
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                shieldTimer.ResetTimer();
+                Destroy(other.gameObject);  
+            }
+            
         }
     }
     private void Flip()
@@ -92,6 +109,9 @@ public class Player1 : MonoBehaviour
     }
     public void ChangeHealth(int health) 
     {
-        this.hp += health;
+        if(!shield.activeInHierarchy || shield.activeInHierarchy && health > 0)
+        {
+            this.hp += health;
+        }
     }
 }
