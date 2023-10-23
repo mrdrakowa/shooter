@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     private float timeBtwAttack;
     public float startTimeBtwAttack;
 
+    public GameObject floatingDamamge;
+
     private float stopTime;
     public float StartStopTime;
     public float normalSpeed;
@@ -42,7 +44,7 @@ public class Enemy : MonoBehaviour
         {
             System.Random rng = new System.Random(DateTime.Now.Millisecond);
             
-            Instantiate(drop[rng.Next(2)], gameObject.transform.position, transform.rotation);
+            Instantiate(drop[rng.Next(3)], gameObject.transform.position, transform.rotation);
             Destroy(gameObject);
         }
         }
@@ -55,6 +57,9 @@ public class Enemy : MonoBehaviour
     {
         stopTime = StartStopTime;
         hp -= damage;
+        Vector2 damagePos = new Vector2(transform.position.x, transform.position.y + 2.75f);
+        Instantiate(floatingDamamge, damagePos, Quaternion.identity);
+        floatingDamamge.GetComponentInChildren<floatingDamage>().damage = damage;
     }
     public void OnTriggerStay2D(Collider2D other)
     {

@@ -7,6 +7,11 @@ TagManager:
   - Enemy
   - potion
   - Shield
+  - Boots
+  - Block
+  - whall
+  - RoomPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
@@ -15,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Ground
   - 
   - 
   - 

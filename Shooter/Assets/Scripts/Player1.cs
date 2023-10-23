@@ -16,6 +16,11 @@ public class Player1 : MonoBehaviour
 
     public GameObject shield;
     public shield shieldTimer;
+    
+    public GameObject boots;
+    public GameObject boot2;
+    public boots bootsTimer;
+
     public TextMeshProUGUI textHp;
 
     private Vector2 moveInput;
@@ -98,6 +103,21 @@ public class Player1 : MonoBehaviour
                 Destroy(other.gameObject);  
             }
             
+        }else if(other.CompareTag("Boots"))
+        {
+            if(!boots.activeInHierarchy && !boot2.activeInHierarchy)
+            {
+                boots.SetActive(true);
+                boot2.SetActive(true);
+                bootsTimer.gameObject.SetActive(true); 
+                bootsTimer.IsCooldown = true;
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                bootsTimer.ResetTime();
+                Destroy(other.gameObject);  
+            }
         }
     }
     private void Flip()

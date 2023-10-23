@@ -416,16 +416,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwAttack: 1
+  floatingDamamge: {fileID: 5349487069250522254, guid: 4c7279c4920c58d448537d14435c8647, type: 3}
   StartStopTime: 0.2
-  normalSpeed: 2
-  hp: 5
+  normalSpeed: 3
+  hp: 10
   speed: 1
   player: {fileID: 0}
   damage: 10
   drop:
   - {fileID: 5715139806506557831, guid: 2bea02845d15b704abf252e41ae0ea15, type: 3}
   - {fileID: 1631713308832263016, guid: d9892d1e7b660c54f80b4a9e4b77ffa1, type: 3}
-  - {fileID: 0}
+  - {fileID: 6267314037631800555, guid: c706f8022ba836d41a8549233a649252, type: 3}
 --- !u!58 &2222943193833405938
 CircleCollider2D:
   m_ObjectHideFlags: 0
